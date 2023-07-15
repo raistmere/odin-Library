@@ -69,10 +69,11 @@ function addBookToLibrary(book)
 }
 
 // This function allows us to remove a book from the library
-function removeBookFromLibrary()
+function removeBookFromLibrary(book)
 {
-
-    myLibrary.find()
+    let bookIndex = myLibrary.indexOf(book);
+    myLibrary.splice(bookIndex, 1);
+    libraryContainer.children[bookIndex].remove();
 }
 
 function addBookToDisplay(book)
@@ -88,12 +89,13 @@ function addBookToDisplay(book)
     newBook.querySelector('.bookAuthor > .authorText').textContent = book.author;
     newBook.querySelector('.bookPages > .pagesText').textContent = book.pages;
     newBook.querySelector('.bookHasRead > .hasReadText').textContent = book.hasRead;
-}
 
-// This function removes the book from the display. Basically updates the display.
-function removeBookFromDisplay(book)
-{
-
+    //We make sure to addEventListener for the new book remove button
+    let newRemoveButton = newBook.querySelector('.removeBookButton');
+    newRemoveButton.addEventListener('click', function(e)
+    {
+        removeBookFromLibrary(book);
+    });
 }
 
 // This function displays all the books in the library
@@ -105,7 +107,7 @@ function displayLibrary(myLibrary)
     {
         myLibrary.forEach(book => 
         {
-            addBookToDisplay(book);
+            addBookToDisplay(book, myLibrary.indexOf(book));
         });
     }
     else
