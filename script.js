@@ -55,7 +55,9 @@ function bookFormSubmit()
     let newTitle = document.querySelector("#bTitle").value;
     let newAuthor = document.querySelector("#bAuthor").value;
     let newPages = document.querySelector("#bPages").value;
-    let newHaveRead = document.querySelector("#bHaveRead").value;
+    let newHaveRead = document.querySelector("#bHaveRead").checked;
+
+    console.log(newHaveRead);
 
     addBookToLibrary(new Book(newAuthor, newTitle, newPages, newHaveRead));
     closeAddBookForm();
@@ -82,19 +84,27 @@ function addBookToDisplay(book)
     libraryContainer.appendChild(bookCard.cloneNode(true));
     //We go ahead and grab the last child of the library element
     // which should be the new clone we just added above.
-    let newBook = document.querySelector('.library').lastElementChild;
+    let newBookCard = document.querySelector('.library').lastElementChild;
 
     // Time to manipulate and update the book card with the correct Book info.
-    newBook.querySelector('.bookTitle > .titleText').textContent = book.title;
-    newBook.querySelector('.bookAuthor > .authorText').textContent = book.author;
-    newBook.querySelector('.bookPages > .pagesText').textContent = book.pages;
-    newBook.querySelector('.bookHasRead > .hasReadText').textContent = book.hasRead;
+    newBookCard.querySelector('.bookTitle > .titleText').textContent = book.title;
+    newBookCard.querySelector('.bookAuthor > .authorText').textContent = book.author;
+    newBookCard.querySelector('.bookPages > .pagesText').textContent = book.pages;
+    newBookCard.querySelector('#haveRead').checked = book.haveRead;
 
     //We make sure to addEventListener for the new book remove button
-    let newRemoveButton = newBook.querySelector('.removeBookButton');
+    let newRemoveButton = newBookCard.querySelector('.removeBookButton');
     newRemoveButton.addEventListener('click', function(e)
     {
         removeBookFromLibrary(book);
+    });
+
+    // We make sure to addEventListener to the have read checkbox as well
+    // to allow the user to check and uncheck it.
+    let newCheckBox = newBookCard.querySelector('#haveRead');
+    newCheckBox.addEventListener('click', function(e)
+    {
+        haveReadStateChanged(book);
     });
 }
 
@@ -113,6 +123,19 @@ function displayLibrary(myLibrary)
     else
     {
         console.log("Not an library of type Array");
+    }
+}
+
+// Updates the book haveRead state whenever the user changes the haveRead checkbox on the book
+function haveReadStateChanged(book)
+{
+    if(book.haveRead === true)
+    {
+        book.haveRead = false;
+    }
+    else
+    {
+        book.haveRead = true;
     }
 }
 

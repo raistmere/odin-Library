@@ -3,63 +3,170 @@
     /* General properties */
     margin: 0;
     padding: 0;
+    color: #2f2647;
 
     /* Text properties */
     font-size: 20px;
 
     /* Border properties */
-    border-style: solid;
-    border-width: 1px;
+    /* border-style: solid;
+    border-width: 1px; */
 }
 
 body
 {
     margin-left: 20vw;
-    margin-right: 20vw
+    margin-right: 20vw;
+
+    background-color: #6b5b95;
 }
 
 .header
 {
     /* General properties */
-    padding: 10px;
+    position: relative;
+    padding: 20px;
+    background-color: #d64161;
 
     /* Flex properties */
     display: flex;
     justify-content: space-between;
+
+    /* Box shadow properties */
+    box-shadow: 0 5px 2px 0 #d641614b;
+}
+
+.header p
+{
+    /* Text properties */
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.header .addBookButton
+{
+    /* General properties */
+    padding: 10px;
+    background-color: #ff7b25;
+
+    /* Text properties */
+    font-size: 24px;
+
+    /* Border properties */
+    border-radius: 10px;
+    border-style: none;
+
+    /* Box shadow properties */
+    box-shadow: 0 6px 2px -2px #ff7c255b;
+}
+
+.addBookButton:hover
+{
+    /* General properties */
+    background-color: #db691d;;
 }
 
 .header .addBookButton:active
 {
-    /* General Properties */
-    background-color: rgb(75, 75, 75);
+    /* General properties */
+    background-color: #d64161;
 }
 
 .library
 {
     /* General properties */
-    padding: 10px;
+    padding: 20px;
+    background-color: #feb236;
 
     /* Main grid proprties */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: auto;
-    gap: 10px;
+    gap: 20px;
 }
 
 .book
 {
     /* General properties */
     width: auto;
-    height: 300px;
-    padding: 10px;
+    height: auto;
+    padding: 20px;
     justify-items: center;
-    background-color: aqua;
+    background-color: #6b5b95;
 
     /* Sub grid properties */
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
     gap: 10px;
+
+    /* Box shadow properties */
+    box-shadow: 0 10px 2px -2px #6b5b9567;
+}
+
+label, .titleLabel, .authorLabel, .pagesLabel
+{
+    /* General properties */
+    text-align: center;
+    padding: 10px;
+    background-color: #d64161;
+}
+
+.titleText, .authorText, .pagesText
+{
+    /* General properties */
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: #feb236;
+
+    /* Text properties */
+    text-align: center;
+
+    /* Box shadow properties */
+    box-shadow: 0 5px 2px -2px #feb13665;
+}
+
+.bookHaveRead
+{
+    /* General properties */
+    background-color: #feb236;
+
+    /* Flex properties */
+    display: flex;
+    flex-direction: column;
+
+    /* Box shadow properties */
+    box-shadow: 0 5px 2px -2px #feb13665;
+}
+
+#haveRead
+{
+    /* General properties */
+    margin: 10px;
+}
+
+.removeBookButton
+{
+    /* General properties */
+    padding: 10px;
+    background-color: #ff7b25;
+
+    /* Border properties */
+    border-radius: 10px;
+    border-style: none;
+}
+
+.removeBookButton:hover
+{
+    /* General properties */
+    background-color: #db691d;
+}
+
+.removeBookButton:active
+{
+    /* General properties */
+    background-color: #d64161;
 }
 
 .addBookForm
@@ -74,15 +181,48 @@ body
     align-content: center;
     justify-items: center;
     padding: 20px;
-    background-color: beige;
+    background-color: #feb236;
 
     /* Sub grid properties */
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 20px;
+
+    /* Border properties */
+    border-radius: 10px;
+    border-style: solid;
 }
 
 .addBookForm.hide
 {
     display: none;
+}
+
+.bookFormTitle, .bookFormAuthor, .bookFormPages, .bookFormHaveRead
+{
+    /* General propertie */
+    width: auto;
+    height: auto;
+    background-color: #d64161;
+
+    /* Sub grid properties */
+    display: grid;
+}
+
+.bookFormButtons
+{
+    /* Flex properties */
+    display: flex;
+    gap: 20px;
+}
+
+.submitBookFormButton, .cancelBookFormButton
+{
+    /* General properties */
+    padding: 10px;
+    background-color: #ff7b25;
+
+    /* Border properties */
+    border-radius: 10px;
+    border-style: none;
 }
