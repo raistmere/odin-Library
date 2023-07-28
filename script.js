@@ -1,3 +1,7 @@
+// 
+// NEW CHANGES: CHANGING FROM FACTORY FUNCTIONS TO CLASSES
+// 
+
 // Dom references
 const bookCard = document.querySelector("template").content.cloneNode(true);
 const libraryContainer = document.querySelector('.library');
