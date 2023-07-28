@@ -28,12 +28,23 @@ cancelBookFormButton.addEventListener('click', function()
 });
 
 // Constructor function that will create new book
-function Book(author, title, pages, haveRead)
+// function Book(author, title, pages, haveRead)
+// {
+//     this.author = author;
+//     this.title = title;
+//     this.pages = pages;
+//     this.haveRead = haveRead;
+// }
+
+class Book
 {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.haveRead = haveRead;
+    constructor(author, title, pages, haveRead)
+    {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.haveRead = haveRead;
+    }
 }
 
 // Main data structure that will hold all the books in the library
