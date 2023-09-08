@@ -27,15 +27,6 @@ cancelBookFormButton.addEventListener('click', function()
     closeAddBookForm();
 });
 
-// Constructor function that will create new book
-// function Book(author, title, pages, haveRead)
-// {
-//     this.author = author;
-//     this.title = title;
-//     this.pages = pages;
-//     this.haveRead = haveRead;
-// }
-
 class Book
 {
     constructor(author, title, pages, haveRead)

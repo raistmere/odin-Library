@@ -49,15 +49,15 @@
             <legend>Add Book Form</legend>
             <div class="bookFormTitle">
                 <label for="bTitle">Book Title</label>
-                <input type="text" id="bTitle" name="bTitle">
+                <input type="text" id="bTitle" name="bTitle" required>
             </div>
             <div class="bookFormAuthor">
                 <label for="bAuthor">Book Author</label>
-                <input type="text" id="bAuthor" name="bAuthor">
+                <input type="text" id="bAuthor" name="bAuthor" required>
             </div>
             <div class="bookFormPages">
                 <label for="bPages">Book Pages</label>
-                <input type="text" id="bPages" name="bPages">
+                <input type="number" id="bPages" name="bPages" required min="1">
             </div>
             <div class="bookFormHaveRead">
                 <label for="bHaveRead">Have read:</label>
@@ -68,6 +68,6 @@
                 <button type="reset" class="cancelBookFormButton">Cancel</button>
             </div>
         </div>
-    </form> 
+    </form>
 </body>
 </html>
